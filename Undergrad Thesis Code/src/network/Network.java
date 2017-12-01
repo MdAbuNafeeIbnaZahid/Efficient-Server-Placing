@@ -144,4 +144,21 @@ public class Network {
         }
     }
 
+    int getClientCntWithServerInRange(int range)
+    {
+        int ret = 0;
+        if (range < 0)
+        {
+            throw new IllegalArgumentException("range cant be negative");
+        }
+
+        for (Client client : clients)
+        {
+            boolean connectivity = client.hasAliveServerWithinDistance(range);
+
+            ret += ( connectivity ? 1 : 0 );
+        }
+
+        return ret;
+    }
 }

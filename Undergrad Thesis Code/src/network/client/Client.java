@@ -1,6 +1,7 @@
 package network.client;
 
 import graph.Node;
+import graph.graph_traversal.CheckingDistance;
 
 /**
  * Created by nafee on 11/29/17.
@@ -25,5 +26,19 @@ public class Client
         }
 
         this.node = node;
+    }
+
+    public boolean hasAliveServerWithinDistance(int distance)
+    {
+        if ( distance < 0 )
+        {
+            throw new IllegalArgumentException("distance = " + distance
+            + ", distance must be non negative");
+        }
+
+        CheckingDistance checkingDistance = new CheckingDistance();
+
+        boolean ret = checkingDistance.hasAliveServerWithinDistance(this.node, distance);
+        return ret;
     }
 }

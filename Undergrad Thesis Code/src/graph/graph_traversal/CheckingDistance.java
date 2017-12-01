@@ -10,8 +10,18 @@ import java.util.*;
  */
 public class CheckingDistance {
 
-    boolean isAliveServerWithinDistance(Node node, int distance)
+    public boolean hasAliveServerWithinDistance(Node node, int distance)
     {
+        if ( node == null )
+        {
+            throw new IllegalArgumentException("node can't be null");
+        }
+
+        if (distance < 0 )
+        {
+            throw new IllegalArgumentException("distance must be non negative");
+        }
+
         Queue<Node> queue = new ArrayDeque<Node>();
         queue.add( node );
         Map<Node, Integer> layerMap = new HashMap<Node, Integer>();
