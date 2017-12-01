@@ -1,6 +1,6 @@
 package network;
 
-import cutomized_util.CollectionFromIterable;
+import helper_util.CollectionFromIterable;
 import graph.Graph;
 import graph.Node;
 import network.client.Client;

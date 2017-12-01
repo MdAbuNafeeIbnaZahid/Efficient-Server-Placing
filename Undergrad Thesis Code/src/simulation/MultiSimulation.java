@@ -53,7 +53,7 @@ public class MultiSimulation
 
 
     // The method simulate sets the variable clientCntWithinServerRange
-    void simulate()
+    public void simulate()
     {
         double clientCntWithinServerRangeSum = 0;
         for (int a = 1; a <= simulationCnt; a++)

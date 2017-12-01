@@ -1,9 +1,8 @@
 package server_placing;
 
-import cutomized_util.CollectionFromIterable;
+import helper_util.CollectionFromIterable;
 import graph.Node;
 import network.Network;
-import network.server.Server;
 
 import java.util.Collections;
 import java.util.List;
