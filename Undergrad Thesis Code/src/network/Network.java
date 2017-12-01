@@ -9,11 +9,10 @@ import network.server.Server;
 import server_placing.ServerPlacing;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static cutomized_util.CollectionFromIterable.makeCollection;
+
 
 /**
  * Created by nafee on 11/30/17.
@@ -144,7 +143,7 @@ public class Network {
         }
     }
 
-    int getClientCntWithServerInRange(int range)
+    public int getClientCntWithServerInRange(int range)
     {
         int ret = 0;
         if (range < 0)
