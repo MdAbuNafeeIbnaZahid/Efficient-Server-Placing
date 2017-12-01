@@ -48,7 +48,7 @@ public class Network {
 
     public boolean containsServer()
     {
-        return servers != null;
+        return servers.size() > 0;
     }
 
 //    private void addServersRandomly( int serverCnt )

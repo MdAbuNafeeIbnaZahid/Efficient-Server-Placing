@@ -16,17 +16,23 @@ public class Edge
 
     public Edge(int uNumber, int vNumber)
     {
+        if ( uNumber < 0 || vNumber < 0 )
+        {
+            throw new IllegalArgumentException("uNumber = " + uNumber
+            + ", vNumber = " + vNumber);
+        }
+
         this.uNumber = uNumber;
         this.vNumber = vNumber;
     }
 
-    // We assume that vertices are numbered from 1
+    // We assume that vertices are numbered from 0 to nodeCnt-1
     private static List<Edge> getAllPossibleEdge( int nodeCnt )
     {
         List<Edge> ret = new ArrayList<Edge>();
-        for (int a = 1; a <= nodeCnt; a++)
+        for (int a = 0; a < nodeCnt; a++)
         {
-            for (int b = a+1; b <= nodeCnt; b++)
+            for (int b = a+1; b < nodeCnt; b++)
             {
                 Edge edge = new Edge(a, b);
                 ret.add(edge);
@@ -35,7 +41,7 @@ public class Edge
         return ret;
     }
 
-    // We assume that vertices are numbered from 1
+    // We assume that vertices are numbered from 0 to nodeCnt-1
     public static List<Edge> getRandomEdges(int nodeCnt, int edgeCnt)
     {
         if ( edgeCnt > MyUtil.nc2(nodeCnt))

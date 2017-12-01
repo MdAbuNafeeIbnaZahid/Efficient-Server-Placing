@@ -63,7 +63,8 @@ public class MultiSimulation
             singleSimulation.simulate();
 
             int curClientCntWithinServerRange = singleSimulation.getClientCntWithinServerRange();
-            assert (curClientCntWithinServerRange >= 0) : curClientCntWithinServerRange;
+            assert (curClientCntWithinServerRange >= 0 && curClientCntWithinServerRange <= clientCnt ) :
+                    curClientCntWithinServerRange;
 
             clientCntWithinServerRangeSum += curClientCntWithinServerRange;
         }

@@ -15,7 +15,8 @@ public class RandomServerPlacing implements ServerPlacing {
     @Override
     public void placeServers(Network network, int serverCnt) {
 
-        assert ! network.containsServer() : network.getServerCnt() ;
+        assert (! network.containsServer() )
+                : "network.getServerCnt() = " + network.getServerCnt() ;
         assert serverCnt >= 0 : serverCnt ;
         assert serverCnt <= network.getNodeCnt() : "serverCnt = " + serverCnt
                 + ", network.getNodeCnt() = " + network.getNodeCnt();

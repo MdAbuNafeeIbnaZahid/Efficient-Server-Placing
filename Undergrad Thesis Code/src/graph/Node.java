@@ -20,7 +20,7 @@ public class Node {
 
     public Node(int nodeNum)
     {
-        if (nodeNum <= 0)
+        if (nodeNum < 0)
         {
             throw new IllegalArgumentException();
         }

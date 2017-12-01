@@ -14,19 +14,20 @@ public class Driver {
 
 
 
-        int nodeCnt = 1000;
-        int serverCnt = 30;
-        int clientCnt = 100;
-        int serverRange = 5;
+        int nodeCnt = 200;
+        int serverCnt = 10;
+        int clientCnt = 200;
+        int serverRange = 1;
         ServerPlacing serverPlacing = new RandomServerPlacing();
 
         System.out.println("nodeCnt = " + nodeCnt);
         System.out.println("serverCnt = " + serverCnt);
         System.out.println("clientCnt = " + clientCnt);
+        System.out.println("serverRange = " + serverRange);
 
         System.out.println();
 
-        for (int densityPercent = 10; densityPercent <= 100; densityPercent += 10 )
+        for (int densityPercent = 0; densityPercent <= 20; densityPercent += 1 )
         {
             int edgeCnt = (densityPercent * MyUtil.nc2(nodeCnt) )/100;
             System.out.println("densityPercent = " + densityPercent);

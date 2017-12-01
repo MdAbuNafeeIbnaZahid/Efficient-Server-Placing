@@ -22,8 +22,8 @@ public class Graph
     boolean addEdge( int u, int v )
     {
         assert (u != v) : "u = " + u + ", v = " + v ;
-        assert (u <= nodeCnt) : "u = " + u + ", nodeCnt = " + nodeCnt;
-        assert (v <= nodeCnt) : "v = " + v + ", nodeCnt = " + nodeCnt;
+        assert ( u >= 0 && u < nodeCnt) : "u = " + u + ", nodeCnt = " + nodeCnt;
+        assert (v >= 0 && v < nodeCnt) : "v = " + v + ", nodeCnt = " + nodeCnt;
 
         Node uNode = nodes.get(u);
         assert (uNode != null) : "uNode = " + uNode;
@@ -31,7 +31,7 @@ public class Graph
         Node vNode = nodes.get(v);
         assert (vNode != null) : "vNode = " + vNode;
 
-        assert (uNode.equals(vNode)) : "uNode = " + uNode + ", vNode = " + vNode;
+        assert ( ! uNode.equals(vNode) ) : "uNode = " + uNode + ", vNode = " + vNode;
 
         if ( areAdjacent(u, v) )
         {
@@ -46,8 +46,8 @@ public class Graph
 
 
     boolean areAdjacent( int u, int v ) {
-        assert (u <= nodeCnt) : "u = " + u + ", nodeCnt = " + nodeCnt;
-        assert (v <= nodeCnt) : "v = " + v + ", nodeCnt = " + nodeCnt;
+        assert ( u >= 0 && u < nodeCnt) : "u = " + u + ", nodeCnt = " + nodeCnt;
+        assert ( v >= 0 && v < nodeCnt) : "v = " + v + ", nodeCnt = " + nodeCnt;
 
         Node uNode = nodes.get(u);
         assert (uNode != null);
@@ -80,7 +80,8 @@ public class Graph
     {
         if (nodeCnt < 0 || edgeCnt < 0)
         {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("nodeCnt = " + nodeCnt +
+            ", edgeCnt = " + edgeCnt);
         }
 
         if ( edgeCnt > MyUtil.nc2(nodeCnt))
@@ -90,7 +91,9 @@ public class Graph
 
         this.nodeCnt = nodeCnt;
         nodes = new ArrayList<Node>();
-        for (int a = 1; a <= nodeCnt; a++ )
+
+        // Here we are assuming 0 based indexing of vertices
+        for (int a = 0; a < nodeCnt; a++ )
         {
             Node node = new Node(a);
             nodes.add(node);
