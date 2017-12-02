@@ -31,5 +31,8 @@ public class RandomServerPlacing implements ServerPlacing {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "RandomServerPlacing";
+    }
 }
