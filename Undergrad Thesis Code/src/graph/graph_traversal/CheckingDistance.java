@@ -9,8 +9,7 @@ import java.util.*;
  */
 public class CheckingDistance {
 
-
-    public int getCntOfAliveServerWithinDistance(Node node, int distance)
+    List<Node> getListOfNodesWithinDistance(Node node, int distance)
     {
         if ( node == null )
         {
@@ -21,9 +20,8 @@ public class CheckingDistance {
         {
             throw new IllegalArgumentException("distance must be non negative");
         }
-        
-        int aliveServerWithinDistanceCnt = 0;
 
+        List<Node> nodesWithinDistance = new ArrayList<Node>();
 
         Queue<Node> queue = new ArrayDeque<Node>();
         queue.add( node );
@@ -41,10 +39,8 @@ public class CheckingDistance {
             assert (currentNodeDis <= distance) :
                     ("currentNodeDis = " + currentNodeDis + ", distance = " + distance);
 
-            if ( currentNode.hasAliveServer() )
-            {
-                aliveServerWithinDistanceCnt++;
-            }
+            nodesWithinDistance.add( currentNode );
+
 
             Iterable<Node> neighborsOfCurrentNode = currentNode.getAdjacents();
             for ( Node neighbor : neighborsOfCurrentNode )
@@ -63,7 +59,43 @@ public class CheckingDistance {
             }
         }
 
-        return aliveServerWithinDistanceCnt;
+        return nodesWithinDistance;
+    }
+
+    private List<Node> getNodeListWithAliveServer(List<Node> nodeList)
+    {
+        List<Node> nodeListWithAliveServer = new ArrayList<Node>();
+        for (Node node : nodeList)
+        {
+            if ( node.hasAliveServer() )
+            {
+                nodeListWithAliveServer.add(node);
+            }
+        }
+
+        return nodeListWithAliveServer;
+    }
+
+
+    public int getCntOfAliveServerWithinDistance(Node node, int distance)
+    {
+        if ( node == null )
+        {
+            throw new IllegalArgumentException("node can't be null");
+        }
+
+        if (distance < 0 )
+        {
+            throw new IllegalArgumentException("distance must be non negative");
+        }
+
+        List<Node> nodeListWithinDistance = getListOfNodesWithinDistance(node, distance);
+        List<Node> nodeWithAliveServerListWithinDistance = getNodeListWithAliveServer(nodeListWithinDistance);
+
+        int cntOfAliveServerWithinDistance = nodeWithAliveServerListWithinDistance.size();
+
+        return cntOfAliveServerWithinDistance;
+
     }
 
     public boolean hasAliveServerWithinDistance(Node node, int distance)
@@ -79,6 +111,7 @@ public class CheckingDistance {
         }
 
         int aliveServerCntWithinDistance = getCntOfAliveServerWithinDistance(node, distance);
+        assert aliveServerCntWithinDistance >= 0 : aliveServerCntWithinDistance;
 
         boolean ret = (aliveServerCntWithinDistance > 0);
 
