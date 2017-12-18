@@ -9,7 +9,8 @@ import java.util.*;
  */
 public class CheckingDistance {
 
-    public boolean hasAliveServerWithinDistance(Node node, int distance)
+
+    public int getCntOfAliveServerWithinDistance(Node node, int distance)
     {
         if ( node == null )
         {
@@ -20,12 +21,15 @@ public class CheckingDistance {
         {
             throw new IllegalArgumentException("distance must be non negative");
         }
+        
+        int aliveServerWithinDistanceCnt = 0;
+
 
         Queue<Node> queue = new ArrayDeque<Node>();
         queue.add( node );
         Map<Node, Integer> layerMap = new HashMap<Node, Integer>();
         layerMap.put(node, 0);
-        while (queue.size()>0)
+        while ( ! queue.isEmpty() )
         {
             Node currentNode = queue.poll();
             int currentNodeDis = layerMap.get(currentNode);
@@ -39,7 +43,7 @@ public class CheckingDistance {
 
             if ( currentNode.hasAliveServer() )
             {
-                return true;
+                aliveServerWithinDistanceCnt++;
             }
 
             Iterable<Node> neighborsOfCurrentNode = currentNode.getAdjacents();
@@ -58,7 +62,28 @@ public class CheckingDistance {
                 layerMap.put(neighbor, currentNodeDis+1);
             }
         }
-        return false;
+
+        return aliveServerWithinDistanceCnt;
+    }
+
+    public boolean hasAliveServerWithinDistance(Node node, int distance)
+    {
+        if ( node == null )
+        {
+            throw new IllegalArgumentException("node can't be null");
+        }
+
+        if (distance < 0 )
+        {
+            throw new IllegalArgumentException("distance must be non negative");
+        }
+
+        int aliveServerCntWithinDistance = getCntOfAliveServerWithinDistance(node, distance);
+
+        boolean ret = (aliveServerCntWithinDistance > 0);
+
+        return ret;
+
     }
 
 }
