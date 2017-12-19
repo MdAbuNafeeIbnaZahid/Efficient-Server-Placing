@@ -13,5 +13,7 @@ public interface ServerPlacing
 {
     void placeServers(Network network, int serverCnt);
 
-    List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerCntWithinRangeForAClient);
+    List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerCntReqWithinRange);
+
+    int getServerCntForGoodConnectivity(Graph graph, int serverRange, int minServerCntReqWithinRange);
 }

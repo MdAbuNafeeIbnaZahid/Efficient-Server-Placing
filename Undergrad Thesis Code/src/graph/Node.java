@@ -5,12 +5,13 @@ package graph;
 import network.client.Client;
 import network.server.Server;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * Created by nafee on 11/29/17.
  */
-public class Node {
+public class Node implements Serializable {
 
     private int nodeNum;
     private Set<Node> adjacentNodes = new HashSet<Node>();

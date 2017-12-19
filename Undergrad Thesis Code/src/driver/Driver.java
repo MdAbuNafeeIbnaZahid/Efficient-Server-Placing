@@ -12,6 +12,7 @@ import server_placing.ServerPlacing;
 import simulation.MultiSimulation;
 import simulation.experiment.Experiment;
 import simulation.experiment.ExperimentVaryDensityServerDrop;
+import simulation.experiment.FindingNumberOfServersNeeded;
 
 import java.io.File;
 
@@ -24,12 +25,21 @@ public class Driver {
     public static void main(String[] args) {
 
 
-        ServerPlacing serverPlacing = new RandomServerPlacing();
-        Experiment experiment = new ExperimentVaryDensityServerDrop(
-                200, 10, 100, 1, serverPlacing
-        );
-        experiment.doExperiment();
-        experiment.saveChartAsImage();
+        for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
+        {
+            Experiment experiment = new FindingNumberOfServersNeeded(nodeCnt);
+            experiment.doExperiment();
+            experiment.saveChartAsImage();
+        }
+
+
+
+//        ServerPlacing serverPlacing = new RandomServerPlacing();
+//        Experiment experiment = new ExperimentVaryDensityServerDrop(
+//                200, 10, 100, 1, serverPlacing
+//        );
+//        experiment.doExperiment();
+//        experiment.saveChartAsImage();
 
 
 

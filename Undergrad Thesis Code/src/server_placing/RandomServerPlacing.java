@@ -1,6 +1,7 @@
 package server_placing;
 
 import graph.Graph;
+import graph.graph_traversal.CheckingDistance;
 import helper_util.CollectionFromIterable;
 import graph.Node;
 import network.Network;
@@ -33,6 +34,7 @@ public class RandomServerPlacing implements ServerPlacing {
 
     @Override
     public List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerCntReqWithinRange) {
+
         if  ( graph == null )
         {
             throw new IllegalArgumentException(" graph can't be null ");
@@ -69,35 +71,41 @@ public class RandomServerPlacing implements ServerPlacing {
         List<Node> nonServerNodes = new ArrayList<>( nodeListOfGraph );
         for ( Iterator<Node> nodeIterator = nonServerNodes.iterator(); nodeIterator.hasNext(); )
         {
-            if ( areAllNodesHaveKServersWithinRange(connectivityMap, minServerCntReqWithinRange) )
+            Collection<Integer> serverCntListWithinRange = connectivityMap.values();
+            int minServerCntWithinRange = Collections.min( serverCntListWithinRange );
+            if ( minServerCntWithinRange >= minServerCntReqWithinRange )
             {
                 break;
             }
 
-            Node node = nodeIterator.next();
-            assert ! node.hasServer() : " this node can't have server ";
+
+
+            Node nodeToPlaceServer = nodeIterator.next();
+            assert ! nodeToPlaceServer.hasServer() : " this nodeToPlaceServer can't have server ";
 
             nodeIterator.remove();
-            nodeListForServerPlacing.add( node );
+            nodeListForServerPlacing.add( nodeToPlaceServer );
+
+            List<Node> nodeListWithinServerRangeOfChosenNode =
+                    CheckingDistance.getListOfNodesWithinDistance(nodeToPlaceServer, serverRange);
+            for ( Node node : nodeListWithinServerRangeOfChosenNode )
+            {
+                connectivityMap.merge(node, 1, Integer::sum);
+            }
+
+
         }
 
         return nodeListForServerPlacing;
     }
 
-    private boolean areAllNodesHaveKServersWithinRange( Map<Node, Integer> connectivityMap, int minServerCntReqWithinRange )
-    {
-        assert connectivityMap != null : connectivityMap ;
-        assert minServerCntReqWithinRange >= 0 : minServerCntReqWithinRange;
+    @Override
+    public int getServerCntForGoodConnectivity(Graph graph, int serverRange, int minServerCntReqWithinRange) {
+        List<Node> nodeListForServerPlacing = getNodeListForServerPlacing(graph, serverRange, minServerCntReqWithinRange);
 
-        for ( Integer serverCntWithinRange: connectivityMap.values() )
-        {
-            if ( serverCntWithinRange < minServerCntReqWithinRange )
-            {
-                return false;
-            }
-        }
+        int serverCnt = nodeListForServerPlacing.size();
 
-        return true;
+        return serverCnt;
     }
 
 

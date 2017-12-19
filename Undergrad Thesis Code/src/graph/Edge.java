@@ -2,6 +2,7 @@ package graph;
 
 import helper_util.MyUtil;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by nafee on 11/30/17.
  */
-public class Edge
+public class Edge implements Serializable
 {
     int uNumber;
     int vNumber;

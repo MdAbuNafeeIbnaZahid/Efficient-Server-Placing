@@ -13,4 +13,11 @@ public class MyUtil {
 
         return (n*(n-1) )>>1;
     }
+
+    public static int getEdgeCnt(int nodeCnt, double densityPercent)
+    {
+        int edgeCnt = (int) ( nc2(nodeCnt) * densityPercent ) / 100;
+
+        return edgeCnt;
+    }
 }

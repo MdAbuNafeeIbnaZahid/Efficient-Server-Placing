@@ -48,7 +48,9 @@ public class ExperimentVaryDensityServerDrop extends Experiment {
         {
             System.out.println("densityPercent = " + densityPercent);
             XYSeries xySeries = new XYSeries(densityPercent);
-            int edgeCnt = (int) ( densityPercent * MyUtil.nc2(nodeCnt))/100;
+
+            int edgeCnt = MyUtil.getEdgeCnt(nodeCnt, densityPercent);
+
             for (double serverDropPercent = 0; serverDropPercent <= 100; serverDropPercent+=10)
             {
                 int serverDropCnt = (int) (serverDropPercent * serverCnt) / 100;

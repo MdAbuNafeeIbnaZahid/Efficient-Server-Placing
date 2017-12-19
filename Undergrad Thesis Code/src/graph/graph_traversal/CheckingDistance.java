@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class CheckingDistance {
 
-    List<Node> getListOfNodesWithinDistance(Node node, int distance)
+    public static List<Node> getListOfNodesWithinDistance(Node node, int distance)
     {
         if ( node == null )
         {
@@ -62,7 +62,7 @@ public class CheckingDistance {
         return nodesWithinDistance;
     }
 
-    private List<Node> getNodeListWithAliveServer(List<Node> nodeList)
+    private static List<Node> getNodeListWithAliveServer(List<Node> nodeList)
     {
         List<Node> nodeListWithAliveServer = new ArrayList<Node>();
         for (Node node : nodeList)
@@ -77,7 +77,7 @@ public class CheckingDistance {
     }
 
 
-    public int getCntOfAliveServerWithinDistance(Node node, int distance)
+    public static int getCntOfAliveServerWithinDistance(Node node, int distance)
     {
         if ( node == null )
         {
@@ -98,7 +98,7 @@ public class CheckingDistance {
 
     }
 
-    public boolean hasAliveServerWithinDistance(Node node, int distance)
+    public static boolean hasAliveServerWithinDistance(Node node, int distance)
     {
         if ( node == null )
         {

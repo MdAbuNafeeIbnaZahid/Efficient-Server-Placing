@@ -1,7 +1,9 @@
 package graph;
 
+import graph.graph_traversal.CheckingDistance;
 import helper_util.MyUtil;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -10,7 +12,7 @@ import java.util.List;
 /**
  * Created by nafee on 11/29/17.
  */
-public class Graph
+public class Graph implements Serializable
 {
     int nodeCnt;
     int edgeCnt;
@@ -114,5 +116,29 @@ public class Graph
 
     public int getEdgeCnt() {
         return edgeCnt;
+    }
+
+    public boolean isConnected()
+    {
+        if (nodeCnt < 0 || edgeCnt < 0)
+        {
+            throw new RuntimeException("nodeCnt = " + nodeCnt +
+                    ", edgeCnt = " + edgeCnt);
+        }
+
+        if ( nodeCnt == 0 )
+        {
+            return true;
+        }
+
+        Node node0 = nodes.get(0);
+
+        CheckingDistance checkingDistance = new CheckingDistance();
+        List<Node> allNodesConnectedWithNode0 = checkingDistance.getListOfNodesWithinDistance(node0, Integer.MAX_VALUE);
+
+        int subgraphContainingZeroVertexCnt = allNodesConnectedWithNode0.size();
+        assert subgraphContainingZeroVertexCnt >= 1;
+
+        return subgraphContainingZeroVertexCnt == nodeCnt;
     }
 }
