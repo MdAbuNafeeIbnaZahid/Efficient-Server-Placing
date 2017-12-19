@@ -103,7 +103,7 @@ public class Graph
         makeRandomEdges(edgeCnt);
     }
 
-    public Iterable<Node> getNodes()
+    public List<Node> getNodes()
     {
         return nodes;
     }
