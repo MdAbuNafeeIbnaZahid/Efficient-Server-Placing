@@ -25,9 +25,10 @@ public abstract class Experiment
 
     JFreeChart jFreeChart;
 
-    public Experiment(int nodeCnt)
+    public Experiment(int nodeCnt, int serverRange)
     {
         this.nodeCnt = nodeCnt;
+        this.serverRange = serverRange;
     }
 
     public Experiment(Integer nodeCnt, Integer edgeCnt,

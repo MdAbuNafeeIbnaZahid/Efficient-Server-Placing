@@ -21,10 +21,11 @@ import java.util.List;
 public class FindingNumberOfServersNeeded extends Experiment {
 
     int simulationCnt = 5;
+    int serverDropAssumption = 2;
 
-    public FindingNumberOfServersNeeded(int nodeCnt)
+    public FindingNumberOfServersNeeded(int nodeCnt, int serverRange)
     {
-        super(nodeCnt);
+        super(nodeCnt, serverRange);
         if ( nodeCnt <= 0 )
         {
             throw new IllegalArgumentException("nodeCnt can't be zero");
@@ -35,6 +36,8 @@ public class FindingNumberOfServersNeeded extends Experiment {
     public String getName() {
         String ret = "";
         ret += "node=" + nodeCnt + ",";
+        ret += "serverRange=" + serverRange + ",";
+        ret += "serverDropAssumption=" + serverDropAssumption + ",";
         return ret;
     }
 
@@ -57,7 +60,7 @@ public class FindingNumberOfServersNeeded extends Experiment {
             for ( int a = 0; a < simulationCnt; a++ )
             {
                 Graph copyGraph = (Graph) UnoptimizedDeepCopy.copy(graph);
-                int currentServerReq = serverPlacing.getServerCntForGoodConnectivity(copyGraph, 1, 3);
+                int currentServerReq = serverPlacing.getServerCntForGoodConnectivity(copyGraph, serverRange, serverDropAssumption+1);
                 assert currentServerReq >= 0;
 
                 serverReqList.add( currentServerReq );

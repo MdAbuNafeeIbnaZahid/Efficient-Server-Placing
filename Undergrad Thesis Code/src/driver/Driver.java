@@ -27,7 +27,7 @@ public class Driver {
 
         for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
         {
-            Experiment experiment = new FindingNumberOfServersNeeded(nodeCnt);
+            Experiment experiment = new FindingNumberOfServersNeeded(nodeCnt, 1);
             experiment.doExperiment();
             experiment.saveChartAsImage();
         }
