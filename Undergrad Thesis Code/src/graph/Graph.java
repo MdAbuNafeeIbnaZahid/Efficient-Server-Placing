@@ -12,11 +12,11 @@ import java.util.List;
 /**
  * Created by nafee on 11/29/17.
  */
-public class Graph implements Serializable
+public abstract class Graph implements Serializable
 {
-    int nodeCnt;
-    int edgeCnt;
-    List<Node> nodes = new ArrayList<Node>();
+    protected int nodeCnt;
+    protected int edgeCnt;
+    protected List<Node> nodes = new ArrayList<Node>();
 
     // Here we are not allowing multigraph.
     // This method will return false if there was previously an edge between u & v
@@ -65,7 +65,7 @@ public class Graph implements Serializable
         return uNode.isAdjacent(vNode);
     }
 
-    private void makeRandomEdges( int edgeCnt )
+    protected void makeRandomEdges( int edgeCnt )
     {
         if ( edgeCnt < 0 )
         {
@@ -78,32 +78,7 @@ public class Graph implements Serializable
         }
     }
 
-    public Graph(int nodeCnt, int edgeCnt)
-    {
-        if (nodeCnt < 0 || edgeCnt < 0)
-        {
-            throw new IllegalArgumentException("nodeCnt = " + nodeCnt +
-            ", edgeCnt = " + edgeCnt);
-        }
 
-        if ( edgeCnt > MyUtil.nc2(nodeCnt))
-        {
-            throw new IllegalArgumentException();
-        }
-
-        this.nodeCnt = nodeCnt;
-        nodes = new ArrayList<Node>();
-
-        // Here we are assuming 0 based indexing of vertices
-        for (int a = 0; a < nodeCnt; a++ )
-        {
-            Node node = new Node(a);
-            nodes.add(node);
-        }
-
-        this.edgeCnt = edgeCnt;
-        makeRandomEdges(edgeCnt);
-    }
 
     public List<Node> getNodes()
     {

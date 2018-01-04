@@ -51,25 +51,6 @@ public class Network {
         return servers.size() > 0;
     }
 
-//    private void addServersRandomly( int serverCnt )
-//    {
-//        assert servers.size() == 0 : servers.size();
-//        assert serverCnt >= 0 : serverCnt;
-//        assert serverCnt <= graph.getNodeCnt() : "serverCnt = " + serverCnt +
-//                ", graph.getNodeCnt() = " + graph.getNodeCnt();
-//
-//        List<Node> nodes = CollectionFromIterable.<Node>makeList(graph.getNodes());
-//        Collections.shuffle( nodes );
-//        nodes = nodes.subList(0, serverCnt);
-//        for (Node node : nodes)
-//        {
-//            Server server = new Server();
-//
-//            servers.add(server);
-//
-//            attachNodeWithServer(node, server);
-//        }
-//    }
 
     private void addClientsRandomly(int clientCnt)
     {
@@ -94,10 +75,10 @@ public class Network {
 
 
 
-    public Network(int nodeCnt, int edgeCnt, int serverCnt, int clientCnt,
+    public Network(Graph graph, int serverCnt, int clientCnt,
                    ServerPlacing serverPlacing)
     {
-        this.graph = new Graph( nodeCnt, edgeCnt );
+        this.graph = graph;
         this.serverPlacing = serverPlacing;
 
         addClientsRandomly(clientCnt);

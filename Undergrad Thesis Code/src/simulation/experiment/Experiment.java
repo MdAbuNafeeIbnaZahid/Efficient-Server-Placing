@@ -1,12 +1,8 @@
 package simulation.experiment;
 
-import helper_util.MyUtil;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
-import org.jfree.data.xy.XYSeriesCollection;
-import server_placing.RandomServerPlacing;
 import server_placing.ServerPlacing;
-import simulation.MultiSimulation;
 
 import java.io.File;
 

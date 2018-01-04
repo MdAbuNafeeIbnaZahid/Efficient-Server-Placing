@@ -3,6 +3,7 @@ package simulation.experiment;
 import deep_copy.UnoptimizedDeepCopy;
 import graph.Graph;
 import graph.Node;
+import graph.graph_type.GraphFactory;
 import helper_util.MyUtil;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
@@ -18,12 +19,12 @@ import java.util.List;
 /**
  * Created by nafee on 12/19/17.
  */
-public class FindingNumberOfServersNeeded extends Experiment {
+public class FindingNumberOfServersNeededInRandomGraph extends Experiment {
 
     int simulationCnt = 5;
     int serverDropAssumption = 2;
 
-    public FindingNumberOfServersNeeded(int nodeCnt, int serverRange)
+    public FindingNumberOfServersNeededInRandomGraph(int nodeCnt, int serverRange)
     {
         super(nodeCnt, serverRange);
         if ( nodeCnt <= 0 )
@@ -52,9 +53,9 @@ public class FindingNumberOfServersNeeded extends Experiment {
             System.out.println( "densityPercent = " + densityPercent);
 
             int edgeCnt = MyUtil.getEdgeCnt(nodeCnt, densityPercent);
-            //System.out.println( "edgeCnt = " + edgeCnt );
-            Graph graph = new Graph(nodeCnt, edgeCnt);
-            //assert graph.isConnected();
+
+            Graph graph = GraphFactory.getRandomGraph(nodeCnt, edgeCnt);
+
 
             List<Integer> serverReqList = new ArrayList<Integer>();
             for ( int a = 0; a < simulationCnt; a++ )

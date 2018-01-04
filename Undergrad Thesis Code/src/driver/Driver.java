@@ -1,20 +1,7 @@
 package driver;
 
-import helper_util.MyUtil;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
-import server_placing.RandomServerPlacing;
-import server_placing.ServerPlacing;
-import simulation.MultiSimulation;
 import simulation.experiment.Experiment;
-import simulation.experiment.ExperimentVaryDensityServerDrop;
-import simulation.experiment.FindingNumberOfServersNeeded;
-
-import java.io.File;
+import simulation.experiment.FindingNumberOfServersNeededInRandomGraph;
 
 /**
  * Created by nafee on 11/29/17.
@@ -27,7 +14,7 @@ public class Driver {
 
         for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
         {
-            Experiment experiment = new FindingNumberOfServersNeeded(nodeCnt, 1);
+            Experiment experiment = new FindingNumberOfServersNeededInRandomGraph(nodeCnt, 1);
             experiment.doExperiment();
             experiment.saveChartAsImage();
         }
@@ -35,7 +22,7 @@ public class Driver {
 
 
 //        ServerPlacing serverPlacing = new RandomServerPlacing();
-//        Experiment experiment = new ExperimentVaryDensityServerDrop(
+//        Experiment experiment = new ExperimentVaryDensityServerDropInRandomConnectedGraph(
 //                200, 10, 100, 1, serverPlacing
 //        );
 //        experiment.doExperiment();
@@ -68,7 +55,7 @@ public class Driver {
 //            for (int serverDropPercent = 10; serverDropPercent <= 100; serverDropPercent+=10)
 //            {
 //                int serverDropCnt = (serverDropPercent * serverCnt)/100;
-//                MultiSimulation multiSimulation = new MultiSimulation(5,
+//                MultiSimulationRandomConnectedGraph multiSimulation = new MultiSimulationRandomConnectedGraph(5,
 //                        nodeCnt, edgeCnt, serverCnt, clientCnt, serverPlacing, serverDropCnt,
 //                        serverRange);
 //                multiSimulation.simulate();

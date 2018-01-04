@@ -86,8 +86,9 @@ public class RandomServerPlacing implements ServerPlacing {
             nodeIterator.remove();
             nodeListForServerPlacing.add( nodeToPlaceServer );
 
+            CheckingDistance checkingDistance = new CheckingDistance();
             List<Node> nodeListWithinServerRangeOfChosenNode =
-                    CheckingDistance.getListOfNodesWithinDistance(nodeToPlaceServer, serverRange);
+                    checkingDistance.getListOfNodesWithinDistance(nodeToPlaceServer, serverRange);
             for ( Node node : nodeListWithinServerRangeOfChosenNode )
             {
                 connectivityMap.merge(node, 1, Integer::sum);

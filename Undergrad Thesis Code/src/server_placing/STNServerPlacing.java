@@ -85,8 +85,10 @@ public class STNServerPlacing implements ServerPlacing {
             assert bestLowestLayerCover > 0 ;
 
             nodeListForServerPlacing.add(bestNodeToPlaceServer);
+
+            CheckingDistance checkingDistance = new CheckingDistance();
             List<Node> nodeListWithinServerRangeOfBestNode =
-                    CheckingDistance.getListOfNodesWithinDistance(bestNodeToPlaceServer, serverRange);
+                    checkingDistance.getListOfNodesWithinDistance(bestNodeToPlaceServer, serverRange);
             for ( Node node : nodeListWithinServerRangeOfBestNode )
             {
                 connectivityMap.merge(node, 1, Integer::sum);

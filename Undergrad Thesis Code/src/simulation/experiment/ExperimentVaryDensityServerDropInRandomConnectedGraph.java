@@ -2,23 +2,22 @@ package simulation.experiment;
 
 import helper_util.MyUtil;
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 import server_placing.ServerPlacing;
-import simulation.MultiSimulation;
+import simulation.MultiSimulationRandomConnectedGraph;
 
 /**
  * Created by nafee on 12/2/17.
  */
-public class ExperimentVaryDensityServerDrop extends Experiment {
+public class ExperimentVaryDensityServerDropInRandomConnectedGraph extends Experiment {
 
-    public ExperimentVaryDensityServerDrop(Integer nodeCnt,
-            Integer serverCnt,
-            Integer clientCnt,
-            Integer serverRange,
-            ServerPlacing serverPlacing
+    public ExperimentVaryDensityServerDropInRandomConnectedGraph(Integer nodeCnt,
+                                                                 Integer serverCnt,
+                                                                 Integer clientCnt,
+                                                                 Integer serverRange,
+                                                                 ServerPlacing serverPlacing
     )
 
     {
@@ -54,11 +53,12 @@ public class ExperimentVaryDensityServerDrop extends Experiment {
             for (double serverDropPercent = 0; serverDropPercent <= 100; serverDropPercent+=10)
             {
                 int serverDropCnt = (int) (serverDropPercent * serverCnt) / 100;
-                MultiSimulation multiSimulation = new MultiSimulation(simulationCnt,
+                MultiSimulationRandomConnectedGraph multiSimulationRandomConnectedGraph = new MultiSimulationRandomConnectedGraph(simulationCnt,
                         nodeCnt, edgeCnt,serverCnt, clientCnt, serverPlacing,
                         serverDropCnt, serverRange );
-                multiSimulation.simulate();
-                double clientCntWithinServerRange = multiSimulation.getClientCntWithinServerRange();
+                multiSimulationRandomConnectedGraph.
+                        simulate();
+                double clientCntWithinServerRange = multiSimulationRandomConnectedGraph.getClientCntWithinServerRange();
                 double clientWithinServerRangePercent = (clientCntWithinServerRange * 100) / clientCnt;
 
                 xySeries.add(serverDropPercent, clientWithinServerRangePercent);

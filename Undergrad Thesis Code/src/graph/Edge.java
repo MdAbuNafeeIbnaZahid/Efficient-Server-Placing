@@ -47,7 +47,8 @@ public class Edge implements Serializable
     {
         if ( edgeCnt > MyUtil.nc2(nodeCnt))
         {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException(" edgeCnt is greater than nc2 of nodeCnt " +
+                    " , edgeCnt = " + edgeCnt + ", nodeCnt = " + nodeCnt );
         }
         List<Edge> allPossibleEdges = getAllPossibleEdge(nodeCnt);
         Collections.shuffle(allPossibleEdges);

@@ -1,13 +1,15 @@
 package simulation;
 
 import deep_copy.UnoptimizedDeepCopy;
+import graph.Graph;
+import graph.graph_type.GraphFactory;
 import network.Network;
 import server_placing.ServerPlacing;
 
 /**
  * Created by nafee on 12/1/17.
  */
-public class MultiSimulation
+public class MultiSimulationRandomConnectedGraph
 {
     int simulationCnt;
 
@@ -34,8 +36,9 @@ public class MultiSimulation
         return clientCntWithinServerRange;
     }
 
-    public MultiSimulation(int simulationCnt, int nodeCnt, int edgeCnt, int serverCnt, int clientCnt,
-                           ServerPlacing serverPlacing, int serverDropCnt, int serverRange)
+
+    public MultiSimulationRandomConnectedGraph(int simulationCnt, int nodeCnt, int edgeCnt, int serverCnt, int clientCnt,
+                                               ServerPlacing serverPlacing, int serverDropCnt, int serverRange)
 
     {
         this.simulationCnt = simulationCnt;
@@ -58,7 +61,8 @@ public class MultiSimulation
         double clientCntWithinServerRangeSum = 0;
         for (int a = 1; a <= simulationCnt; a++)
         {
-            Network network = new Network(nodeCnt, edgeCnt, serverCnt, clientCnt, serverPlacing);
+            Graph randomConnectedGraph = GraphFactory.getRandomConnectedGraph(nodeCnt, edgeCnt);
+            Network network = new Network(randomConnectedGraph, serverCnt, clientCnt, serverPlacing);
             SingleSimulation singleSimulation = new SingleSimulation(network, serverDropCnt, serverRange );
             singleSimulation.simulate();
 
