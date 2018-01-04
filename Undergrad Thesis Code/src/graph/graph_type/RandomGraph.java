@@ -24,15 +24,7 @@ public class RandomGraph extends Graph {
             throw new IllegalArgumentException();
         }
 
-        this.nodeCnt = nodeCnt;
-        nodes = new ArrayList<Node>();
-
-        // Here we are assuming 0 based indexing of vertices
-        for (int a = 0; a < nodeCnt; a++ )
-        {
-            Node node = new Node(a);
-            nodes.add(node);
-        }
+        makeNodes(nodeCnt);
 
         this.edgeCnt = edgeCnt;
         makeRandomEdges(edgeCnt);

@@ -21,7 +21,7 @@ public abstract class Graph implements Serializable
     // Here we are not allowing multigraph.
     // This method will return false if there was previously an edge between u & v
     // Will return true if a new edge is added
-    boolean addEdge( int u, int v )
+    protected void addEdge( int u, int v )
     {
         assert (u != v) : "u = " + u + ", v = " + v ;
         assert ( u >= 0 && u < nodeCnt) : "u = " + u + ", nodeCnt = " + nodeCnt;
@@ -35,15 +35,12 @@ public abstract class Graph implements Serializable
 
         assert ( ! uNode.equals(vNode) ) : "uNode = " + uNode + ", vNode = " + vNode;
 
-        if ( areAdjacent(u, v) )
-        {
-            return false;
-        }
+        assert ! areAdjacent(u, v) : u + " & " + v + " previously had an edge. We are not allowing multiedge";
 
         uNode.addNeighbor(vNode);
         vNode.addNeighbor(uNode);
 
-        return true;
+        assert areAdjacent(u, v) : " Adding edge between  " + u + " & " + v + " failed ";
     }
 
 
@@ -115,5 +112,24 @@ public abstract class Graph implements Serializable
         assert subgraphContainingZeroVertexCnt >= 1;
 
         return subgraphContainingZeroVertexCnt == nodeCnt;
+    }
+
+    protected void makeNodes(int nodeCnt)
+    {
+        assert nodeCnt >= 0 : " nodeCnt of a graph can't be smaller than 0 ";
+        assert nodes.size() == 0 : " There should  be no node in the graph before making nodes ";
+
+
+        this.nodeCnt = nodeCnt;
+        nodes = new ArrayList<Node>();
+
+        // Here we are assuming 0 based indexing of vertices
+        for (int a = 0; a < nodeCnt; a++ )
+        {
+            Node node = new Node(a);
+            nodes.add(node);
+        }
+
+        assert nodes.size() == nodeCnt : " list of nodes must have the same number of nodes as nodeCnt ";
     }
 }

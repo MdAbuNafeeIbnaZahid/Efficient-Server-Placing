@@ -22,7 +22,7 @@ public class Driver {
 
 
 //        ServerPlacing serverPlacing = new RandomServerPlacing();
-//        Experiment experiment = new ExperimentVaryDensityServerDropInRandomConnectedGraph(
+//        Experiment experiment = new FindingServerDropCntInRandomConnectedGraphVaVaryingDensity(
 //                200, 10, 100, 1, serverPlacing
 //        );
 //        experiment.doExperiment();

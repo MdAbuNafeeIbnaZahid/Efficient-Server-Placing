@@ -11,13 +11,13 @@ import simulation.MultiSimulationRandomConnectedGraph;
 /**
  * Created by nafee on 12/2/17.
  */
-public class ExperimentVaryDensityServerDropInRandomConnectedGraph extends Experiment {
+public class FindingServerDropCntInRandomConnectedGraphVaVaryingDensity extends Experiment {
 
-    public ExperimentVaryDensityServerDropInRandomConnectedGraph(Integer nodeCnt,
-                                                                 Integer serverCnt,
-                                                                 Integer clientCnt,
-                                                                 Integer serverRange,
-                                                                 ServerPlacing serverPlacing
+    public FindingServerDropCntInRandomConnectedGraphVaVaryingDensity(Integer nodeCnt,
+                                                                      Integer serverCnt,
+                                                                      Integer clientCnt,
+                                                                      Integer serverRange,
+                                                                      ServerPlacing serverPlacing
     )
 
     {
