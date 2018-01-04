@@ -19,12 +19,13 @@ import java.util.List;
 /**
  * Created by nafee on 12/19/17.
  */
-public class FindingNumberOfServersNeededInRandomGraph extends Experiment {
+public class FindingNumberOfServersNeededInRandomGraphVaryingDensity extends Experiment {
 
     int simulationCnt = 5;
     int serverDropAssumption = 2;
+    XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
 
-    public FindingNumberOfServersNeededInRandomGraph(int nodeCnt, int serverRange)
+    public FindingNumberOfServersNeededInRandomGraphVaryingDensity(int nodeCnt, int serverRange)
     {
         super(nodeCnt, serverRange);
         if ( nodeCnt <= 0 )
@@ -82,17 +83,20 @@ public class FindingNumberOfServersNeededInRandomGraph extends Experiment {
     @Override
     public void doExperiment() {
 
-        XYSeriesCollection xySeriesCollection = new XYSeriesCollection();
+       generateAndAddCurveInXYSeriesCollection(new RandomServerPlacing());
+       generateAndAddCurveInXYSeriesCollection(new STNServerPlacing());
 
-        ServerPlacing randomServerPlacing = new RandomServerPlacing();
-        XYSeries randomServerPlacingCurve = getXySeries(randomServerPlacing);
-        xySeriesCollection.addSeries(randomServerPlacingCurve);
+        createJFreeChart();
+    }
 
+    void generateAndAddCurveInXYSeriesCollection( ServerPlacing serverPlacing )
+    {
+        XYSeries xySeries = getXySeries(serverPlacing);
+        xySeriesCollection.addSeries(xySeries);
+    }
 
-        ServerPlacing STNServerPlacing = new STNServerPlacing();
-        XYSeries STNServerPlacingCurve = getXySeries(STNServerPlacing);
-        xySeriesCollection.addSeries(STNServerPlacingCurve);
-
+    void createJFreeChart()
+    {
         jFreeChart = ChartFactory.createXYLineChart(this.getName(), "densityPercent",
                 "serversNeeded", xySeriesCollection, PlotOrientation.VERTICAL, true,
                 true, false);

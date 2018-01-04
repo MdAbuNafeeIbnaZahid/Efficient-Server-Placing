@@ -1,7 +1,7 @@
 package driver;
 
 import simulation.experiment.Experiment;
-import simulation.experiment.FindingNumberOfServersNeededInRandomGraph;
+import simulation.experiment.FindingNumberOfServersNeededInRandomGraphVaryingDensity;
 
 /**
  * Created by nafee on 11/29/17.
@@ -14,7 +14,7 @@ public class Driver {
 
         for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
         {
-            Experiment experiment = new FindingNumberOfServersNeededInRandomGraph(nodeCnt, 1);
+            Experiment experiment = new FindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, 1);
             experiment.doExperiment();
             experiment.saveChartAsImage();
         }
