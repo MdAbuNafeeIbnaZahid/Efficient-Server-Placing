@@ -1,5 +1,6 @@
 package graph.graph_type;
 
+import graph.Graph;
 import helper_util.Validator;
 
 /**
@@ -27,4 +28,15 @@ public class GraphFactory
         Validator.validateNodeCnt(nodeCnt);
         return new Tree(nodeCnt);
     }
+
+    public static Cycle getCycle(int nodeCnt)
+    {
+        if ( nodeCnt < 2 )
+        {
+            throw new IllegalArgumentException(" A cycle can't have less than 2 nodes ");
+        }
+
+        return new Cycle(nodeCnt);
+    }
+
 }

@@ -26,7 +26,6 @@ public class RandomGraph extends Graph {
 
         makeNodes(nodeCnt);
 
-        this.edgeCnt = edgeCnt;
         makeRandomEdges(edgeCnt);
     }
 

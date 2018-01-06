@@ -50,7 +50,7 @@ public class CheckingDistance {
             {
                 int neighborDistance = layerMap.getOrDefault(neighbor, Integer.MAX_VALUE);
 
-                if ( currentNodeDis + 1 > neighborDistance )
+                if ( currentNodeDis + 1 >= neighborDistance )
                 {
                     continue;
                 }

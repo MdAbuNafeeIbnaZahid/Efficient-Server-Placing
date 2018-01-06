@@ -29,4 +29,15 @@ public class ExperimentFactory
 
         return new FindingNumberOfServersNeededInTreeVaryingNodeCnt(serverRange);
     }
+
+    public static FindingNumberOfServersNeededInCycleVaryingNodeCnt
+        getFindingNumberOfServersNeededInCycleVaryingNodeCnt(int serverRange)
+    {
+        if ( serverRange < 0 )
+        {
+            throw new IllegalArgumentException(" serverRange can't be negative ");
+        }
+
+        return new FindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
+    }
 }

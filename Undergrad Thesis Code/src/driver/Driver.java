@@ -13,8 +13,12 @@ public class Driver {
     public static void main(String[] args) {
 
         int serverRange = 5;
-        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
+        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(5);
         experiment.doExperimentAndSaveChartAsImage();
+
+//        int serverRange = 5;
+//        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
+//        experiment.doExperimentAndSaveChartAsImage();
 
 
 

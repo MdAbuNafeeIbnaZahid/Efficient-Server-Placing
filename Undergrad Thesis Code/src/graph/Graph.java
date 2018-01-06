@@ -1,12 +1,9 @@
 package graph;
 
 import graph.graph_traversal.CheckingDistance;
-import helper_util.MyUtil;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -14,9 +11,26 @@ import java.util.List;
  */
 public abstract class Graph implements Serializable
 {
-    protected int nodeCnt;
-    protected int edgeCnt;
+    protected int nodeCnt = 0;
+    protected int edgeCnt = 0;
     protected List<Node> nodes = new ArrayList<Node>();
+
+
+    protected void addEdge(Node uNode, Node vNode)
+    {
+        if ( uNode == null )
+        {
+            throw new IllegalArgumentException(" uNode can't be null ");
+        }
+
+        if ( vNode == null )
+        {
+            throw new IllegalArgumentException("vNode can't be null");
+        }
+
+        addEdge(uNode.getNodeIdx(), vNode.getNodeIdx());
+    }
+
 
     // Here we are not allowing multigraph.
     // This method will return false if there was previously an edge between u & v
@@ -39,6 +53,8 @@ public abstract class Graph implements Serializable
 
         uNode.addNeighbor(vNode);
         vNode.addNeighbor(uNode);
+
+        edgeCnt++;
 
         assert areAdjacent(u, v) : " Adding edge between  " + u + " & " + v + " failed ";
     }
@@ -108,10 +124,16 @@ public abstract class Graph implements Serializable
         CheckingDistance checkingDistance = new CheckingDistance();
         List<Node> allNodesConnectedWithNode0 = checkingDistance.getListOfNodesWithinDistance(node0, Integer.MAX_VALUE);
 
-        int subgraphContainingZeroVertexCnt = allNodesConnectedWithNode0.size();
-        assert subgraphContainingZeroVertexCnt >= 1;
 
-        return subgraphContainingZeroVertexCnt == nodeCnt;
+
+
+        int subgraphSizeContainingZeroVertex = allNodesConnectedWithNode0.size();
+        assert subgraphSizeContainingZeroVertex >= 1;
+        assert subgraphSizeContainingZeroVertex <= nodeCnt : " A subgraph can't contain more vertices than" +
+                " the parent graph. ";
+
+
+        return subgraphSizeContainingZeroVertex == nodeCnt;
     }
 
     protected void makeNodes(int nodeCnt)
@@ -132,4 +154,24 @@ public abstract class Graph implements Serializable
 
         assert nodes.size() == nodeCnt : " list of nodes must have the same number of nodes as nodeCnt ";
     }
+
+    public Node getNode (int nodeIdx)
+    {
+        if ( nodeIdx < 0 || nodeIdx >= nodeCnt )
+        {
+            throw new IllegalArgumentException(" nodeIdx is out of range ");
+        }
+
+        assert nodes.size() == nodeCnt : " Graph must have nodeCnt number of nodes ";
+
+        Node retNode = nodes.get(nodeIdx);
+        assert retNode != null : " No node found in nodeIdx ";
+        assert retNode.getNodeIdx() == nodeIdx : " node found in nodeIdx doesn't have expected idx ";
+
+        return retNode;
+    }
+
+
+    
+
 }

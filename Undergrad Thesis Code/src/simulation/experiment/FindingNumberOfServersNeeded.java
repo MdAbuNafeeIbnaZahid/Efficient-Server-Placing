@@ -28,10 +28,13 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
     double densityPercent;
     Graph graph;
 
-    public FindingNumberOfServersNeeded(int nodeCnt)
+    public FindingNumberOfServersNeeded(int serverRange)
     {
-        super(nodeCnt);
-        Validator.validateNodeCnt(nodeCnt);
+        super(serverRange);
+        if ( serverRange < 0 )
+        {
+            throw new IllegalArgumentException(" serverRange can't be negative ");
+        }
     }
 
 

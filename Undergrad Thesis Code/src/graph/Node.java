@@ -13,19 +13,19 @@ import java.util.*;
  */
 public class Node implements Serializable {
 
-    private int nodeNum;
+    private int nodeIdx;
     private Set<Node> adjacentNodes = new HashSet<Node>();
     private Client client = null;
     private Server server = null;
 
 
-    public Node(int nodeNum)
+    public Node(int nodeIdx)
     {
-        if (nodeNum < 0)
+        if (nodeIdx < 0)
         {
             throw new IllegalArgumentException();
         }
-        this.nodeNum = nodeNum;
+        this.nodeIdx = nodeIdx;
     }
 
     public void setClient(Client client)
@@ -76,8 +76,8 @@ public class Node implements Serializable {
         return true;
     }
 
-    public int getNodeNum() {
-        return nodeNum;
+    public int getNodeIdx() {
+        return nodeIdx;
     }
 
     public Client getClient() {
@@ -116,5 +116,15 @@ public class Node implements Serializable {
     public Iterable getAdjacents()
     {
         return adjacentNodes;
+    }
+
+    public int getAdjacentCount()
+    {
+        return adjacentNodes.size();
+    }
+
+    public boolean doesHaveTwoEdges()
+    {
+        return (getAdjacentCount() == 2);
     }
 }
