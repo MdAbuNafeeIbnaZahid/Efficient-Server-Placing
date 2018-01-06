@@ -18,4 +18,15 @@ public class ExperimentFactory
 
         return new FindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
     }
+
+    public static FindingNumberOfServersNeededInTreeVaryingNodeCnt
+        getFindingNumberOfServersNeededInTreeVaryingNode(int serverRange)
+    {
+        if ( serverRange < 0 )
+        {
+            throw new IllegalArgumentException(" serverRange can't be negative ");
+        }
+
+        return new FindingNumberOfServersNeededInTreeVaryingNodeCnt(serverRange);
+    }
 }

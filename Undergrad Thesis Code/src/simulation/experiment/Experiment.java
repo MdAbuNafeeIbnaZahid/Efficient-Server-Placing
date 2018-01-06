@@ -21,6 +21,11 @@ public abstract class Experiment
 
     JFreeChart jFreeChart;
 
+    public Experiment(int serverRange)
+    {
+        this.serverRange = serverRange;
+    }
+
     public Experiment(int nodeCnt, int serverRange)
     {
         this.nodeCnt = nodeCnt;
@@ -63,4 +68,9 @@ public abstract class Experiment
 
     }
 
+    public void doExperimentAndSaveChartAsImage()
+    {
+        doExperiment();
+        saveChartAsImage();
+    }
 }

@@ -5,6 +5,7 @@ import graph.Graph;
 import graph.Node;
 import graph.graph_type.GraphFactory;
 import helper_util.MyUtil;
+import helper_util.Validator;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
@@ -27,12 +28,22 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
     double densityPercent;
     Graph graph;
 
+    public FindingNumberOfServersNeeded(int nodeCnt)
+    {
+        super(nodeCnt);
+        Validator.validateNodeCnt(nodeCnt);
+    }
+
+
     public FindingNumberOfServersNeeded(int nodeCnt, int serverRange)
     {
         super(nodeCnt, serverRange);
-        if ( nodeCnt <= 0 )
+
+        Validator.validateNodeCnt(nodeCnt);
+
+        if ( serverRange < 0 )
         {
-            throw new IllegalArgumentException("nodeCnt can't be zero");
+            throw new IllegalArgumentException(" serverRange can't be negative ");
         }
     }
 
@@ -49,20 +60,21 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
 
         for (double varyingParameter = 20; varyingParameter <= 100; varyingParameter += 10)
         {
-
-            createAndAssignGraph(varyingParameter);
-
-
             List<Integer> serverReqList = new ArrayList<Integer>();
-            for ( int a = 0; a < simulationCnt; a++ )
+
+            for (int differentGraphSimulationCnt = 0; differentGraphSimulationCnt < simulationCnt; differentGraphSimulationCnt++ )
             {
-                Graph copyGraph = (Graph) UnoptimizedDeepCopy.copy(graph);
-                int currentServerReq = serverPlacing.getServerCntForGoodConnectivity(copyGraph, serverRange, serverDropAssumption+1);
-                assert currentServerReq >= 0;
+                createAndAssignGraph(varyingParameter);
 
-                serverReqList.add( currentServerReq );
+                for ( int sameGraphSimulationCnt = 0; sameGraphSimulationCnt < simulationCnt; sameGraphSimulationCnt++ )
+                {
+                    Graph copyGraph = (Graph) UnoptimizedDeepCopy.copy(graph);
+                    int currentServerReq = serverPlacing.getServerCntForGoodConnectivity(copyGraph, serverRange, serverDropAssumption+1);
+                    assert currentServerReq >= 0;
+
+                    serverReqList.add( currentServerReq );
+                }
             }
-
 
             Double avgServerReq = serverReqList.stream().mapToDouble(val -> val).average().getAsDouble();
 

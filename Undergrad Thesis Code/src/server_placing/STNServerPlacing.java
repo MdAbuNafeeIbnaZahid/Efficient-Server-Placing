@@ -35,6 +35,7 @@ public class STNServerPlacing implements ServerPlacing {
             throw new IllegalArgumentException(" minServerReqWithinRange can't be smaller than zero ");
         }
 
+
         List<Node> nodeListForServerPlacing = new ArrayList<Node>();
 
 
@@ -67,7 +68,7 @@ public class STNServerPlacing implements ServerPlacing {
             {
                 int weakNodeCnt = getNodeCntWithinRangeWithSpecificServerConnectivity(node, connectivityMap,
                         minServerCntWithinRange, serverRange);
-                if ( weakNodeCnt >= bestLowestLayerCover )
+                if ( weakNodeCnt > bestLowestLayerCover )
                 {
                     bestLowestLayerCover = weakNodeCnt;
                     bestNodeToPlaceServer = node;
@@ -81,8 +82,8 @@ public class STNServerPlacing implements ServerPlacing {
                 break;
             }
 
-            assert bestNodeToPlaceServer != null;
-            assert bestLowestLayerCover > 0 ;
+            assert bestNodeToPlaceServer != null : " bestNodeToPlaceServer can't be null ";
+            assert bestLowestLayerCover > 0 : " bestLowestLayerCover must be positive " ;
 
             nodeListForServerPlacing.add(bestNodeToPlaceServer);
 
