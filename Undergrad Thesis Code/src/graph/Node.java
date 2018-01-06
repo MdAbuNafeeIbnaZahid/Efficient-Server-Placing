@@ -123,8 +123,8 @@ public class Node implements Serializable {
         return adjacentNodes.size();
     }
 
-    public boolean doesHaveTwoEdges()
+    public boolean doesHaveSpecificNeighborCnt(int neighborCount)
     {
-        return (getAdjacentCount() == 2);
+        return (getAdjacentCount() == neighborCount);
     }
 }

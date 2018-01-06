@@ -24,13 +24,7 @@ public class FindingNumberOfServersNeededInRandomGraphVaryingDensity extends Fin
         return ret;
     }
 
-    void createJFreeChart()
-    {
-        jFreeChart = ChartFactory.createXYLineChart(this.getName(), "densityPercent",
-                "serversNeeded", xySeriesCollection, PlotOrientation.VERTICAL, true,
-                true, false);
 
-    }
 
     @Override
     void createAndAssignGraph(double varyingParameter) {
@@ -39,5 +33,10 @@ public class FindingNumberOfServersNeededInRandomGraphVaryingDensity extends Fin
         edgeCnt = MyUtil.getEdgeCnt(nodeCnt, densityPercent);
         graph = GraphFactory.getRandomGraph(nodeCnt, edgeCnt);
 
+    }
+
+    @Override
+    String getXAxisLabel() {
+        return "density";
     }
 }

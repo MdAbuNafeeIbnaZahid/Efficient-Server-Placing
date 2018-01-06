@@ -1,5 +1,6 @@
 package graph;
 
+import deep_copy.UnoptimizedDeepCopy;
 import graph.graph_traversal.CheckingDistance;
 
 import java.io.Serializable;
@@ -14,6 +15,8 @@ public abstract class Graph implements Serializable
     protected int nodeCnt = 0;
     protected int edgeCnt = 0;
     protected List<Node> nodes = new ArrayList<Node>();
+
+    public static final int NEIGHBOR_COUNT_IN_CYCLE = 2;
 
 
     protected void addEdge(Node uNode, Node vNode)
@@ -172,6 +175,85 @@ public abstract class Graph implements Serializable
     }
 
 
-    
+    protected boolean doAllNodesHaveSpecificEdgeCount( int specificEdgeCount ) {
+        for (int a = 0; a < nodeCnt; a++)
+        {
+            Node currentNode = nodes.get(a);
+            if ( ! currentNode.doesHaveSpecificNeighborCnt(specificEdgeCount) )
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
+
+    protected void addAnotherNode()
+    {
+        assert ( nodeCnt == nodes.size() ) : " Graph had faulty value.  " ;
+
+
+        // here we are using zero based indexing of Nodes.
+        nodes.add(new Node(nodeCnt));
+        nodeCnt++;
+    }
+
+    public Graph getNewGraphAddingAnotherNodeAndEdgesWithAllPreviousNodes()
+    {
+        Graph ret = (Graph) UnoptimizedDeepCopy.copy(this);
+
+        int maxNodeIdxBeforeAdding = ret.getNodeCnt()-1;
+        ret.addAnotherNode(); // this will increase nodeCnt by 1
+        int newNodeIdx = ret.getNodeCnt()-1;
+
+        assert newNodeIdx == maxNodeIdxBeforeAdding + 1 ;
+
+        ret.makeEdgeWithAllOtherNodes(newNodeIdx);
+
+        return ret;
+    }
+
+    void makeEdgeWithAllOtherNodes( int nodeNum )
+    {
+        for (int i = 0; i < nodeCnt; i++)
+        {
+            if ( i == nodeNum )
+            {
+                continue;
+            }
+
+            addEdge(nodeNum, i);
+        }
+    }
+
+    public boolean isCycle()
+    {
+        if ( edgeCnt != nodeCnt )
+        {
+            return false;
+        }
+
+        if ( ! doAllNodesHaveSpecificEdgeCount(NEIGHBOR_COUNT_IN_CYCLE) )
+        {
+            return false;
+        }
+
+        if ( !isConnected() )
+        {
+            return false;
+        }
+
+        return true;
+
+    }
+
+    public boolean isTree()
+    {
+        if ( (nodeCnt-1 != edgeCnt) || ( !isConnected() ) )
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

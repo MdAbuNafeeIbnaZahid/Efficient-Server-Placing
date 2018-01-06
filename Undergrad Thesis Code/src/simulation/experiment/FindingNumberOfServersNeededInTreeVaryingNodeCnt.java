@@ -24,16 +24,15 @@ public class FindingNumberOfServersNeededInTreeVaryingNodeCnt extends FindingNum
         return ret;
     }
 
-    @Override
-    void createJFreeChart() {
-        jFreeChart = ChartFactory.createXYLineChart(this.getName(), "nodeCnt",
-                "serversNeeded", xySeriesCollection, PlotOrientation.VERTICAL, true,
-                true, false);
-    }
 
     @Override
     void createAndAssignGraph(double varyingParameter) {
         nodeCnt = (int)varyingParameter;
         graph = GraphFactory.getTree(nodeCnt);
+    }
+
+    @Override
+    String getXAxisLabel() {
+        return "nodeCnt";
     }
 }

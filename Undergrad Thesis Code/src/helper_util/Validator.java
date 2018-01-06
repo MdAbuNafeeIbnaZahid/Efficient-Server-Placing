@@ -46,4 +46,12 @@ public class Validator {
         validateNodeOrEdgeCnt(nodeCnt, NodeOrEdge.NODE);
     }
 
+    public static void validateServerRange(int serverRange)
+    {
+        if ( serverRange < 0 )
+        {
+
+        }
+    }
+
 }

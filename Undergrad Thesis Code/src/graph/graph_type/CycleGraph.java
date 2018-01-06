@@ -6,8 +6,12 @@ import graph.Node;
 /**
  * Created by nafee on 1/6/18.
  */
-public class Cycle extends Graph {
-    public Cycle(int nodeCnt)
+public class CycleGraph extends Graph {
+
+
+
+
+    public CycleGraph(int nodeCnt)
     {
         if ( nodeCnt < 2)
         {
@@ -17,9 +21,7 @@ public class Cycle extends Graph {
         makeNodes(nodeCnt);
         eachNodeMakeAnEdgeWithPreviousNode();
 
-        assert edgeCnt == nodeCnt : " In cycle number of nodes must be equal to number of edges ";
-        assert doAllNodesHaveTwoEdges() : " In cycle all nodes must have two edges ";
-        assert isConnected() : " A cycle graph must be connected";
+        assert isCycle();
 
     }
 
@@ -38,18 +40,5 @@ public class Cycle extends Graph {
 
         addEdge(prevNodeNum, nodeNum);
     }
-
-    boolean doAllNodesHaveTwoEdges() {
-        for (int a = 0; a < nodeCnt; a++)
-        {
-            Node currentNode = nodes.get(a);
-            if ( ! currentNode.doesHaveTwoEdges() )
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
 
 }

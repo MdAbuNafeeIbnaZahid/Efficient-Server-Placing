@@ -22,6 +22,7 @@ public class Tree extends Graph {
 
         assert this.isConnected() : " Tree must be connected ";
         assert ( this.edgeCnt == this.nodeCnt-1 ) : " tree edgeCount must be one less than nodeCount ";
+
     }
 
     void addEdgeWithAPreviousNode(int nodeNum)

@@ -11,10 +11,7 @@ public class ExperimentFactory
         getFindingNumberOfServersNeededInRandomGraphVaryingDensity(int nodeCnt, int serverRange)
     {
         Validator.validateNodeCnt(nodeCnt);
-        if ( serverRange < 0 )
-        {
-            throw new IllegalArgumentException(" serverRange can't be negative ");
-        }
+        Validator.validateServerRange(serverRange);
 
         return new FindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
     }
@@ -22,10 +19,7 @@ public class ExperimentFactory
     public static FindingNumberOfServersNeededInTreeVaryingNodeCnt
         getFindingNumberOfServersNeededInTreeVaryingNode(int serverRange)
     {
-        if ( serverRange < 0 )
-        {
-            throw new IllegalArgumentException(" serverRange can't be negative ");
-        }
+        Validator.validateServerRange(serverRange);
 
         return new FindingNumberOfServersNeededInTreeVaryingNodeCnt(serverRange);
     }
@@ -33,11 +27,24 @@ public class ExperimentFactory
     public static FindingNumberOfServersNeededInCycleVaryingNodeCnt
         getFindingNumberOfServersNeededInCycleVaryingNodeCnt(int serverRange)
     {
-        if ( serverRange < 0 )
-        {
-            throw new IllegalArgumentException(" serverRange can't be negative ");
-        }
+        Validator.validateServerRange(serverRange);
 
         return new FindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
+    }
+
+    public static FindingNumberOfServersNeededInStarVaryingNodeCnt
+        getFindingNumberOfServersNeededInStarVaryingNodeCnt(int serverRange)
+    {
+        Validator.validateServerRange(serverRange);
+
+        return new FindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
+    }
+
+    public static FindingNumberOfServersNeededInWheelVaryingNodeCnt
+        getFindingNumberOfServersNeededInWheelVaryingNodeCnt(int serverRange)
+    {
+        Validator.validateServerRange(serverRange);
+
+        return new FindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRange);
     }
 }

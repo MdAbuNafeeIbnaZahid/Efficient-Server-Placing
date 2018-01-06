@@ -105,7 +105,19 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
         xySeriesCollection.addSeries(xySeries);
     }
 
-    abstract void createJFreeChart();
+    final void createJFreeChart()
+    {
+        jFreeChart = ChartFactory.createXYLineChart(getName(), getXAxisLabel(),
+                getYAxisLabel(), xySeriesCollection, PlotOrientation.VERTICAL, true,
+                true, false);
+    }
 
     abstract void createAndAssignGraph(double varyingParameter);
+
+    abstract String getXAxisLabel();
+
+    String getYAxisLabel()
+    {
+        return "serversNeeded";
+    }
 }

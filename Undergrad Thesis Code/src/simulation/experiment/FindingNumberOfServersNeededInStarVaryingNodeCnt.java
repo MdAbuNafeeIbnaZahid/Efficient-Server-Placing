@@ -5,26 +5,27 @@ import graph.graph_type.GraphFactory;
 /**
  * Created by nafee on 1/6/18.
  */
-public class FindingNumberOfServersNeededInCycleVaryingNodeCnt extends FindingNumberOfServersNeeded {
+public class FindingNumberOfServersNeededInStarVaryingNodeCnt extends FindingNumberOfServersNeeded {
 
-    public FindingNumberOfServersNeededInCycleVaryingNodeCnt(int serverRange) {
+    public FindingNumberOfServersNeededInStarVaryingNodeCnt(int serverRange) {
         super(serverRange);
     }
 
     @Override
     public String getName() {
         String ret = "";
-        ret += "FindingNumberOfServersNeededInCycleVaryingNodeCnt,";
+        ret += "FindingNumberOfServersNeededInStarVaryingNodeCnt,";
         ret += "serverRange=" + serverRange + ",";
         ret += "serverDropAssumption=" + serverDropAssumption + ",";
         return ret;
     }
 
 
+
     @Override
     void createAndAssignGraph(double varyingParameter) {
         nodeCnt = (int)varyingParameter;
-        graph = GraphFactory.getCycleGraph(nodeCnt);
+        graph = GraphFactory.getStarGraph(nodeCnt);
     }
 
     @Override
