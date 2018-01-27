@@ -28,8 +28,7 @@ public class pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18 {
 
     placeAnotherServer()
     {
-        leastConnectedNonServerNodes = {All non server nodes n such that it has the lowest
-        serverCountWithinRange[n]  };
+        leastConnectedNonServerNodes = getLeastConnectedNonServerNodes();
 
 
         nodeToPlaceNewServer = getNodeToPlaceNewServer();
@@ -40,6 +39,27 @@ public class pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18 {
             newly placed server;
         remove nodeToPlaceNewServer from the set nonServerNodes;
         add nodeToPlaceNewServer to the set serverNodes;
+    }
+
+    Set<Node> getLeastConnectedNonServerNodes()
+    {
+        Set<Node> ret;
+
+        int lowestServerCountWithinRange = Integer.MAX_VALUE;
+        for (Node n in nonServerNodes)
+        {
+            lowestServerCountWithinRange = min( lowestServerCountWithinRange, serverCountWithinRange[n] );
+        }
+
+        for (Node n in nonServerNodes)
+        {
+            if ( serverCountWithinRange[n] == lowestServerCountWithinRange )
+            {
+                ret.add(n);
+            }
+        }
+
+        return ret;
     }
 
     Node getNodeToPlaceNewServer()
