@@ -13,9 +13,9 @@ public class Driver {
     public static void main(String[] args) {
 
 
-        int serverRang = 1;
-        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRang);
-        experiment.doExperimentAndSaveChartAsImage();
+//        int serverRang = 1;
+//        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRang);
+//        experiment.doExperimentAndSaveChartAsImage();
 
 
 
@@ -41,13 +41,13 @@ public class Driver {
 
 
 
-//        int serverRange = 1;
-//        for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
-//        {
-//            Experiment experiment =
-//                    ExperimentFactory.getFindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
-//            experiment.doExperimentAndSaveChartAsImage();
-//        }
+        int serverRange = 1;
+        for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
+        {
+            Experiment experiment =
+                    ExperimentFactory.getFindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
+            experiment.doExperimentAndSaveChartAsImage();
+        }
 
 
 

@@ -17,7 +17,7 @@ public class FindingNumberOfServersNeededInRandomGraphVaryingDensity extends Fin
 
     @Override
     public String getName() {
-        String ret = "";
+        String ret = "FindingNumberOfServersNeededInRandomGraphVaryingDensity";
         ret += "node=" + nodeCnt + ",";
         ret += "serverRange=" + serverRange + ",";
         ret += "serverDropAssumption=" + serverDropAssumption + ",";
