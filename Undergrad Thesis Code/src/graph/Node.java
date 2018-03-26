@@ -118,13 +118,13 @@ public class Node implements Serializable {
         return adjacentNodes;
     }
 
-    public int getAdjacentCount()
+    public int getDegree()
     {
         return adjacentNodes.size();
     }
 
     public boolean doesHaveSpecificNeighborCnt(int neighborCount)
     {
-        return (getAdjacentCount() == neighborCount);
+        return (getDegree() == neighborCount);
     }
 }

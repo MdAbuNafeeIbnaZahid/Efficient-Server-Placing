@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface ServerPlacing
 {
+
     void placeServers(Network network, int serverCnt);
 
     List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerCntReqWithinRange);

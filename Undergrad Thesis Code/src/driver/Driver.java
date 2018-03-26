@@ -13,38 +13,41 @@ public class Driver {
     public static void main(String[] args) {
 
 
-//        int serverRang = 1;
-//        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRang);
-//        experiment.doExperimentAndSaveChartAsImage();
+        int serverRange;
+        Experiment experiment;
+
+        serverRange = 1;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
 
 
 
 
 
 
-//        int serverRange = 1;
-//        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
-//        experiment.doExperimentAndSaveChartAsImage();
+        serverRange = 1;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
 
 
-//        int serverRange = 5;
-//        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(5);
-//        experiment.doExperimentAndSaveChartAsImage();
-
-
-
-//        int serverRange = 5;
-//        Experiment experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
-//        experiment.doExperimentAndSaveChartAsImage();
+        serverRange = 5;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
 
 
 
+        serverRange = 5;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
 
 
-        int serverRange = 2;
+
+
+
+        serverRange = 2;
         for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
         {
-            Experiment experiment =
+            experiment =
                     ExperimentFactory.getFindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
             experiment.doExperimentAndSaveChartAsImage();
         }

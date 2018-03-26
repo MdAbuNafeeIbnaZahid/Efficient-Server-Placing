@@ -13,6 +13,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 import server_placing.RandomServerPlacing;
 import server_placing.STNServerPlacing;
 import server_placing.ServerPlacing;
+import server_placing.ServerPlacingFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,6 +73,10 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
                 for ( int sameGraphSimulationCnt = 0; sameGraphSimulationCnt < simulationCnt; sameGraphSimulationCnt++ )
                 {
                     Graph copyGraph = (Graph) UnoptimizedDeepCopy.copy(graph);
+                    // While operation we may need to change graph. So rather than changing the main graph
+                    // passed as parameter to the method getXySeries, we are using a copy of the graph
+                    // and changing it
+
                     int currentServerReq = serverPlacing.getServerCntForGoodConnectivity(copyGraph, serverRange, serverDropAssumption+1);
                     assert currentServerReq >= 0;
 
@@ -93,8 +98,16 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
     @Override
     public void doExperiment() {
 
-       generateAndAddCurveInXYSeriesCollection(new RandomServerPlacing());
-       generateAndAddCurveInXYSeriesCollection(new STNServerPlacing());
+        ServerPlacing randomServerPlacing = ServerPlacingFactory.getRandomServerPlacing();
+       generateAndAddCurveInXYSeriesCollection(randomServerPlacing);
+
+
+       for (double degreeWeight = 0; degreeWeight <= 1; degreeWeight += 0.33 )
+       {
+           double weakNodeCoverCntWeight = 1 - degreeWeight;
+           ServerPlacing stnServerPlacing = ServerPlacingFactory.getSTNServerPlacing(weakNodeCoverCntWeight, degreeWeight);
+           generateAndAddCurveInXYSeriesCollection(stnServerPlacing);
+       }
 
         createJFreeChart();
     }

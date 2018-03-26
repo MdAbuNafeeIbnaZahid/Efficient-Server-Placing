@@ -12,6 +12,24 @@ import java.util.*;
  */
 public class STNServerPlacing implements ServerPlacing {
 
+
+
+
+    double weakNodeCoverCntWeight;
+    double degreeWeight;
+
+    public STNServerPlacing(double weakNodeCoverCntWeight, double degreeWeight)
+    {
+        this.weakNodeCoverCntWeight = weakNodeCoverCntWeight;
+        this.degreeWeight = degreeWeight;
+    }
+
+
+
+    Map<Node, Integer> connectivityMap;
+
+
+
     @Override
     public void placeServers(Network network, int serverCnt) {
         throw new UnsupportedOperationException();
@@ -20,6 +38,7 @@ public class STNServerPlacing implements ServerPlacing {
     @Override
     public List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerReqWithinRange)
     {
+
 
         if  ( graph == null )
         {
@@ -36,6 +55,8 @@ public class STNServerPlacing implements ServerPlacing {
             throw new IllegalArgumentException(" minServerReqWithinRange can't be smaller than zero ");
         }
 
+        connectivityMap = new HashMap<>();
+
 
         List<Node> nodeListForServerPlacing = new ArrayList<Node>();
 
@@ -45,7 +66,7 @@ public class STNServerPlacing implements ServerPlacing {
         assert nodeListOfGraph != null : nodeListOfGraph;
         assert ! nodeListOfGraph.isEmpty() : nodeListOfGraph;
 
-        Map<Node, Integer> connectivityMap = new HashMap<Node, Integer>();
+
         for ( Node node : nodeListOfGraph )
         {
             connectivityMap.put(node, 0);
@@ -62,19 +83,7 @@ public class STNServerPlacing implements ServerPlacing {
                 break;
             }
 
-            Node bestNodeToPlaceServer = null;
-            int bestLowestLayerCover = 0;
-
-            for (Node node : nonServerNodes)
-            {
-                int weakNodeCnt = getNodeCntWithinRangeWithSpecificServerConnectivity(node, connectivityMap,
-                        minServerCntWithinRange, serverRange);
-                if ( weakNodeCnt > bestLowestLayerCover )
-                {
-                    bestLowestLayerCover = weakNodeCnt;
-                    bestNodeToPlaceServer = node;
-                }
-            }
+            Node bestNodeToPlaceServer = getBestNodeToPlaceServer(nonServerNodes, minServerCntWithinRange, serverRange);
 
             if  ( bestNodeToPlaceServer == null )
             {
@@ -84,7 +93,7 @@ public class STNServerPlacing implements ServerPlacing {
             }
 
             assert bestNodeToPlaceServer != null : " bestNodeToPlaceServer can't be null ";
-            assert bestLowestLayerCover > 0 : " bestLowestLayerCover must be positive " ;
+
 
             nodeListForServerPlacing.add(bestNodeToPlaceServer);
 
@@ -103,17 +112,39 @@ public class STNServerPlacing implements ServerPlacing {
         return nodeListForServerPlacing;
     }
 
-    @Override
-    public int getServerCntForGoodConnectivity(Graph graph, int serverRange, int minServerCntReqWithinRange) {
+    private Node getBestNodeToPlaceServer(List<Node> nonServerNodes, int minServerCntWithinRange, int serverRange)
+    {
+        assert nonServerNodes != null;
+        assert ! nonServerNodes.isEmpty();
 
-        List<Node> nodeListForServerPlacing = getNodeListForServerPlacing(graph, serverRange, minServerCntReqWithinRange);
+        Node bestNodeToPlaceServer = null;
+        double bestScore = 0;
 
-        int serverCnt = nodeListForServerPlacing.size();
+        for (Node node : nonServerNodes)
+        {
+            int weakNodeCoverCnt = getNodeCntWithinRangeWithSpecificServerConnectivity(node,
+                    minServerCntWithinRange, serverRange);
 
-        return serverCnt;
+            int degree = node.getDegree();
+
+            double score = getScore(weakNodeCoverCnt, degree);
+
+            if ( score  > bestScore )
+            {
+                bestScore = weakNodeCoverCnt;
+                bestNodeToPlaceServer = node;
+            }
+        }
+
+        return bestNodeToPlaceServer;
     }
 
-    private int getNodeCntWithinRangeWithSpecificServerConnectivity( Node node, Map<Node, Integer> connectivityMap, int serverConnectivity, int range )
+    double getScore(int weakNodeCoverCnt, int degree )
+    {
+        return weakNodeCoverCnt*weakNodeCoverCntWeight + degree*degreeWeight;
+    }
+
+    private int getNodeCntWithinRangeWithSpecificServerConnectivity( Node node, int serverConnectivity, int range )
     {
         assert node != null;
         assert connectivityMap != null;
@@ -140,7 +171,22 @@ public class STNServerPlacing implements ServerPlacing {
     }
 
     @Override
+    public int getServerCntForGoodConnectivity(Graph graph, int serverRange, int minServerCntReqWithinRange) {
+
+        List<Node> nodeListForServerPlacing = getNodeListForServerPlacing(graph, serverRange, minServerCntReqWithinRange);
+
+        int serverCnt = nodeListForServerPlacing.size();
+
+        return serverCnt;
+    }
+
+
+
+    @Override
     public String toString() {
-        return "STNServerPlacing{}";
+        return "STNServerPlacing{" +
+                "weakNodeCoverCntWeight=" + weakNodeCoverCntWeight +
+                ", degreeWeight=" + degreeWeight +
+                '}';
     }
 }
