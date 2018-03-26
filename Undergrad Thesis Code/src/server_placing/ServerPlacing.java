@@ -16,4 +16,6 @@ public interface ServerPlacing
     List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerCntReqWithinRange);
 
     int getServerCntForGoodConnectivity(Graph graph, int serverRange, int minServerCntReqWithinRange);
+    // this method actually returns the minimum number of servers needed such that each node is covered by
+    // at least minServerCntReqWithinRange+1 servers
 }

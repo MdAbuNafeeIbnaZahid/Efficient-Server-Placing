@@ -18,7 +18,8 @@ public class STNServerPlacing implements ServerPlacing {
     }
 
     @Override
-    public List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerReqWithinRange) {
+    public List<Node> getNodeListForServerPlacing(Graph graph, int serverRange, int minServerReqWithinRange)
+    {
 
         if  ( graph == null )
         {

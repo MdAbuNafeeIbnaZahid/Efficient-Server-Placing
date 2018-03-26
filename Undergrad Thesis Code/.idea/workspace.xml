@@ -16,41 +16,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Graph.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/Graph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4950">
-              <caret line="237" column="25" lean-forward="false" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#2798#2799#0" expanded="false" />
-                <element signature="e#2826#2827#0" expanded="false" />
-                <element signature="e#2857#2858#0" expanded="false" />
-                <element signature="e#2887#2888#0" expanded="false" />
-                <element signature="e#2918#2919#0" expanded="false" />
-                <element signature="e#2948#2949#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CycleGraph.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/graph_type/CycleGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/driver/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="902">
+              <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,11 +28,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="STNServerPlacing.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/server_placing/STNServerPlacing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RandomServerPlacing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server_placing/RandomServerPlacing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerPlacing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server_placing/ServerPlacing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pseudocode/pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="43" column="49" lean-forward="true" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+            <state relative-caret-position="946">
+              <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -83,10 +83,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
               <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="62" />
-              <folding>
-                <element signature="e#827#828#0" expanded="true" />
-                <element signature="e#859#860#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,12 +93,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="638">
               <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-              <folding>
-                <element signature="e#291#292#0" expanded="true" />
-                <element signature="e#325#326#0" expanded="true" />
-                <element signature="e#918#919#0" expanded="true" />
-                <element signature="e#950#951#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,12 +103,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="19" column="19" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="19" selection-end-column="19" />
-              <folding>
-                <element signature="e#289#290#0" expanded="true" />
-                <element signature="e#323#324#0" expanded="true" />
-                <element signature="e#824#825#0" expanded="true" />
-                <element signature="e#856#857#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,18 +113,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="352">
               <caret line="19" column="77" lean-forward="false" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GraphFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/graph_type/GraphFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1914">
-              <caret line="88" column="97" lean-forward="false" selection-start-line="88" selection-start-column="97" selection-end-line="88" selection-end-column="97" />
               <folding />
             </state>
           </provider>
@@ -180,7 +155,6 @@
         <option value="$PROJECT_DIR$/src/simulation/Experiment.java" />
         <option value="$PROJECT_DIR$/src/server_placing/NTSServerPlacing.java" />
         <option value="$PROJECT_DIR$/src/helper_util/MyUtil.java" />
-        <option value="$PROJECT_DIR$/src/server_placing/ServerPlacing.java" />
         <option value="$PROJECT_DIR$/src/server_placing/RandomServerPlacing.java" />
         <option value="$PROJECT_DIR$/src/graph/graph_type/GraphTypes.java" />
         <option value="$PROJECT_DIR$/src/network/Network.java" />
@@ -197,7 +171,6 @@
         <option value="$PROJECT_DIR$/src/simulation/experiment/FindingServerDropCntInRandomConnectedGraphVaVaryingDensity.java" />
         <option value="$PROJECT_DIR$/src/simulation/experiment/FindingNumberOfServersNeededInRandomGraphVaryingDensity1.java" />
         <option value="$PROJECT_DIR$/src/simulation/experiment/FindingNumberOfServersNeededInTreeVaryingNode.java" />
-        <option value="$PROJECT_DIR$/src/server_placing/STNServerPlacing.java" />
         <option value="$PROJECT_DIR$/src/graph/graph_type/RandomGraph.java" />
         <option value="$PROJECT_DIR$/src/simulation/experiment/Experiment.java" />
         <option value="$PROJECT_DIR$/src/graph/graph_traversal/CheckingDistance.java" />
@@ -216,9 +189,11 @@
         <option value="$PROJECT_DIR$/src/graph/Graph.java" />
         <option value="$PROJECT_DIR$/src/simulation/experiment/FindingNumberOfServersNeededInWheelVaryingNodeCnt.java" />
         <option value="$PROJECT_DIR$/src/simulation/experiment/ExperimentFactory.java" />
-        <option value="$PROJECT_DIR$/src/driver/Driver.java" />
         <option value="$PROJECT_DIR$/src/simulation/experiment/FindingNumberOfServersNeededInRandomGraphVaryingDensity.java" />
         <option value="$PROJECT_DIR$/src/pseudocode/pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18.java" />
+        <option value="$PROJECT_DIR$/src/driver/Driver.java" />
+        <option value="$PROJECT_DIR$/src/server_placing/ServerPlacing.java" />
+        <option value="$PROJECT_DIR$/src/server_placing/STNServerPlacing.java" />
       </list>
     </option>
   </component>
@@ -244,6 +219,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -527,7 +503,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -805,7 +780,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2299613" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24101713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -816,7 +791,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
@@ -866,15 +841,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2798#2799#0" expanded="false" />
-            <element signature="e#2826#2827#0" expanded="false" />
-            <element signature="e#2857#2858#0" expanded="false" />
-            <element signature="e#2887#2888#0" expanded="false" />
-            <element signature="e#2918#2919#0" expanded="false" />
-            <element signature="e#2948#2949#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -973,13 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/server_placing/ServerPlacing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///opt/java/jdk1.8.0_121/src.zip!/java/util/OptionalDouble.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -1020,20 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="37" column="19" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="37" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server_placing/STNServerPlacing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-52">
-          <caret line="70" column="34" lean-forward="false" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/server_placing/RandomServerPlacing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="90" column="36" lean-forward="false" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1092,7 +1038,7 @@
         <state relative-caret-position="274">
           <caret line="107" column="10" lean-forward="false" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#3537#3538#0" expanded="false" />
             <element signature="e#3575#3576#0" expanded="false" />
           </folding>
@@ -1120,7 +1066,7 @@
         <state relative-caret-position="484">
           <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1137,15 +1083,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4950">
           <caret line="237" column="25" lean-forward="false" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#2798#2799#0" expanded="false" />
-            <element signature="e#2826#2827#0" expanded="false" />
-            <element signature="e#2857#2858#0" expanded="false" />
-            <element signature="e#2887#2888#0" expanded="false" />
-            <element signature="e#2918#2919#0" expanded="false" />
-            <element signature="e#2948#2949#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1153,10 +1091,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="7" column="62" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="62" />
-          <folding>
-            <element signature="e#827#828#0" expanded="true" />
-            <element signature="e#859#860#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,12 +1099,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="19" column="19" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="19" selection-end-column="19" />
-          <folding>
-            <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1177,12 +1107,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
           <caret line="32" column="25" lean-forward="false" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding>
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#325#326#0" expanded="true" />
-            <element signature="e#918#919#0" expanded="true" />
-            <element signature="e#950#951#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,26 +1123,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="19" column="77" lean-forward="false" selection-start-line="19" selection-start-column="77" selection-end-line="19" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/driver/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pseudocode/pseudocodeOfSTNServerPlacingAlgorithmGivenToSamiaOn_26_1_18.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="43" column="49" lean-forward="true" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+        <state relative-caret-position="946">
+          <caret line="43" column="49" lean-forward="false" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/driver/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="43" column="28" lean-forward="false" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server_placing/ServerPlacing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="19" column="52" lean-forward="false" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server_placing/RandomServerPlacing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="21" column="32" lean-forward="true" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server_placing/STNServerPlacing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

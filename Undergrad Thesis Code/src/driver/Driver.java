@@ -41,7 +41,7 @@ public class Driver {
 
 
 
-        int serverRange = 1;
+        int serverRange = 2;
         for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
         {
             Experiment experiment =
