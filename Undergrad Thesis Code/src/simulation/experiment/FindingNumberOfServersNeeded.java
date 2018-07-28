@@ -101,6 +101,9 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
         ServerPlacing randomServerPlacing = ServerPlacingFactory.getRandomServerPlacing();
        generateAndAddCurveInXYSeriesCollection(randomServerPlacing);
 
+       ServerPlacing paperServerPlacing = ServerPlacingFactory.getPaperServerPlacing();
+       generateAndAddCurveInXYSeriesCollection(paperServerPlacing);
+
 
        for (double degreeWeight = 0; degreeWeight <= 1; degreeWeight += 0.33 )
        {

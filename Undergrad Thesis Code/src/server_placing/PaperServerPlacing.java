@@ -106,7 +106,7 @@ public class PaperServerPlacing implements ServerPlacing
 
     public int getServerCntForGoodConnectivity(Graph graph, int serverRange, int minServerCntReqWithinRange)
     {
-        if(servers == null) getNodeListForServerPlacing(graph, serverRange, minServerCntReqWithinRange);
+        servers = getNodeListForServerPlacing(graph, serverRange, minServerCntReqWithinRange);
         return servers.size();
     }
 }

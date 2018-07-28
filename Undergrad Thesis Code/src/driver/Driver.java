@@ -16,29 +16,29 @@ public class Driver {
         int serverRange;
         Experiment experiment;
 
-        serverRange = 1;
-        experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRange);
-        experiment.doExperimentAndSaveChartAsImage();
-
-
-
-
-
-
-        serverRange = 1;
-        experiment = ExperimentFactory.getFindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
-        experiment.doExperimentAndSaveChartAsImage();
-
-
-        serverRange = 5;
-        experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
-        experiment.doExperimentAndSaveChartAsImage();
-
-
-
-        serverRange = 5;
-        experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
-        experiment.doExperimentAndSaveChartAsImage();
+//        serverRange = 1;
+//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRange);
+//        experiment.doExperimentAndSaveChartAsImage();
+//
+//
+//
+//
+//
+//
+//        serverRange = 1;
+//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
+//        experiment.doExperimentAndSaveChartAsImage();
+//
+//
+//        serverRange = 5;
+//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
+//        experiment.doExperimentAndSaveChartAsImage();
+//
+//
+//
+//        serverRange = 5;
+//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
+//        experiment.doExperimentAndSaveChartAsImage();
 
 
 
