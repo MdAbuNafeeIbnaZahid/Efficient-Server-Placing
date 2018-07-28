@@ -13,4 +13,9 @@ public class ServerPlacingFactory {
     {
         return new STNServerPlacing(weakNodeCoverCntWeight, degreeWeight);
     }
+
+    public static PaperServerPlacing getPaperServerPlacing()
+    {
+        return new PaperServerPlacing();
+    }
 }
