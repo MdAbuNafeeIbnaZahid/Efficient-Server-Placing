@@ -62,7 +62,7 @@ public abstract class FindingNumberOfServersNeeded extends Experiment {
         XYSeries xySeries = new XYSeries( serverPlacing.toString() );
 
 
-        for (double varyingParameter = 20; varyingParameter <= 100; varyingParameter += 10)
+        for (double varyingParameter = 5; varyingParameter <= 100; varyingParameter += 1)
         {
             List<Integer> serverReqList = new ArrayList<Integer>();
 

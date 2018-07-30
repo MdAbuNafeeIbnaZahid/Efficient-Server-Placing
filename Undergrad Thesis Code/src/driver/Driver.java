@@ -16,41 +16,38 @@ public class Driver {
         int serverRange;
         Experiment experiment;
 
-//        serverRange = 1;
-//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRange);
-//        experiment.doExperimentAndSaveChartAsImage();
-//
-//
-//
-//
-//
-//
-//        serverRange = 1;
-//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
-//        experiment.doExperimentAndSaveChartAsImage();
-//
-//
-//        serverRange = 5;
-//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
-//        experiment.doExperimentAndSaveChartAsImage();
-//
-//
-//
-//        serverRange = 5;
-//        experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
-//        experiment.doExperimentAndSaveChartAsImage();
+        serverRange = 1;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInWheelVaryingNodeCnt(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
+
+
+
+        serverRange = 1;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInStarVaryingNodeCnt(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
+
+
+        serverRange = 5;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInCycleVaryingNodeCnt(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
+
+
+
+        serverRange = 5;
+        experiment = ExperimentFactory.getFindingNumberOfServersNeededInTreeVaryingNode(serverRange);
+        experiment.doExperimentAndSaveChartAsImage();
 
 
 
 
 
-        serverRange = 2;
-        for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
-        {
-            experiment =
-                    ExperimentFactory.getFindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
-            experiment.doExperimentAndSaveChartAsImage();
-        }
+//        serverRange = 2;
+//        for (int nodeCnt = 50; nodeCnt <= 200; nodeCnt += 25)
+//        {
+//            experiment =
+//                    ExperimentFactory.getFindingNumberOfServersNeededInRandomGraphVaryingDensity(nodeCnt, serverRange);
+//            experiment.doExperimentAndSaveChartAsImage();
+//        }
 
 
 
